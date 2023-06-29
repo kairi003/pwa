@@ -18,8 +18,12 @@
     <input type="button" value="リセット！" id="resetBtn" onclick="reset();" disabled="disabled">
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener("load", function() {
-                navigator.serviceWorker.register('sw.js', {scope: './'});
+            window.addEventListener("load", event => {
+                navigator.serviceWorker.register('sw.js', {scope: './'}).then(resiter => {
+                    console.log('ServiceWorker registration successful with scope: ', resiter.scope);
+                }).catch(err => {
+                    console.error('ServiceWorker registration failed: ', err);
+                });
             });
         }
     </script>
