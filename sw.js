@@ -1,10 +1,10 @@
 var CACHE_NAME = 'pwa-sample-caches';
 var urlsToCache = [
-    'mako5656.github.io/pwa/',
-    'mako5656.github.io/pwa/app.js',
+    'kairi003.github.io/pwa/',
+    'kairi003.github.io/pwa/app.js',
 ];
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', event => {
     event.waitUntil(caches
         .open(CACHE_NAME)
         .then(function(cache) {
@@ -13,7 +13,7 @@ self.addEventListener('install', function(event) {
     );
 });
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', event => {
     event.respondWith(caches
         .match(event.request)
         .then(function(response) {
